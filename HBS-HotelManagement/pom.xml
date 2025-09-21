@@ -10,7 +10,7 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.in28minutes</groupId>
-	<artifactId>Practice-In28minutes</artifactId>
+	<artifactId>HBS</artifactId>
 	<version>3.3.3</version>
 	<name>Practice-In28minutes</name>
 	<description>Demo project for Spring Boot</description>

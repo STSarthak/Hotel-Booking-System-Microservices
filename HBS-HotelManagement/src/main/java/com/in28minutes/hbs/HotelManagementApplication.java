@@ -21,7 +21,7 @@ public class HotelManagementApplication {
 //			e.printStackTrace();
 //		}
 	}
-	
+
 	@Bean
 	public WebMvcConfigurer corsConfigurer() {
 		return new WebMvcConfigurer() {
