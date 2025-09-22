@@ -3,6 +3,7 @@ package com.hbs.h2dbserver.config;
 import jakarta.annotation.PostConstruct;
 import jakarta.annotation.PreDestroy;
 import org.h2.tools.Server;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -13,12 +14,15 @@ import java.sql.SQLException;
 @Configuration
 public class H2ServerConfig {
 
+    @Value("${h2.tcp.port:9093}")
+    private String tcpPort;
+
     private Server tcpServer;
     private Connection keepAliveConn;
 
     @Bean(initMethod = "start", destroyMethod = "stop")
     public Server h2TcpServer() throws SQLException {
-        tcpServer = Server.createTcpServer("-tcp", "-tcpPort", "9093", "-tcpAllowOthers");
+        tcpServer = Server.createTcpServer("-tcp", "-tcpPort", tcpPort, "-tcpAllowOthers");
         return tcpServer;
     }
 
